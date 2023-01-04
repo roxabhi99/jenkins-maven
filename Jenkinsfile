@@ -1,44 +1,16 @@
 pipeline {
-agent any 
-tools {  
-maven 'maven'
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('welcome') {
+            steps{
+                echo 'welcome'
+            }
+        }
+    }
 }
-
-stages {
-
-stage ('compile')
-{
-steps {
-
-sh "mvn compile"
-
-}
-}
-
-stage ('test')
-{
-steps {
-
-sh "mvn test"
-}
-}
-
-stage ('package')
-{
-steps {
-
-sh "mvn package"
-}
-}
-
-stage ('install')
-{
-steps {
-
-sh "mvn install"
-}
-}
-
-}
-}
-
